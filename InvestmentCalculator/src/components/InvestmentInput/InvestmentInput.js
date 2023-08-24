@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import './InvestmentInput.css';
+import Button from '../UI/Button';
+
 
 const InvestmentInput = props => {
     return (
@@ -26,7 +29,10 @@ const InvestmentInput = props => {
                     <input type="number" id="duration" />
                 </p>
             </div>
-            // add button here
+            <p className="actions">
+                <Button type='reset' style='button' onClick={onEditClick}>Reset</Button>
+                <Button type='submit' style='button'>Calculate</Button>
+            </p>
         </form>
     )
 };
