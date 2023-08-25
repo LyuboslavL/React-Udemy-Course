@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import './InvestmentInput.css';
-import Button from '../UI/Button';
+import Button from '../UI/Button/Button'
 
 
 const InvestmentInput = props => {
@@ -30,8 +30,8 @@ const InvestmentInput = props => {
                 </p>
             </div>
             <p className="actions">
-                <Button type='reset' style='button' onClick={onEditClick}>Reset</Button>
-                <Button type='submit' style='button'>Calculate</Button>
+                <Button />
+                <Button type='submit'>Calculate</Button>
             </p>
         </form>
     )
