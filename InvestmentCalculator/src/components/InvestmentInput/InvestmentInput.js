@@ -5,8 +5,26 @@ import './InvestmentInput.css';
 
 
 const InvestmentInput = props => {
+    const [enteredCurrent, setEnteredCurrent] = useState('');
+    const [enteredYearly, setEnteredYearly] = useState('');
+    const [enteredInterest, setEnteredInterest] = useState('');
+    const [enteredDuration, setEnteredDuration] = useState('');
+
+    const formSubmitHandler = event => {
+        event.preventDefault();
+
+        const investmentData = {
+            currentSavings: enteredCurrent,
+            yearlySavings: enteredYearly,
+            expectedInterest: enteredInterest,
+            investmentDuration: enteredDuration
+        };
+
+
+    }
+
     return (
-        <form className="form">
+        <form className="form" onSubmit={formSubmitHandler}>
             <div className="input-group">
                 <p>
                     <label htmlFor="current-savings">Current Savings ($)</label>
