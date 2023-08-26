@@ -25,7 +25,12 @@ const InvestmentInput = props => {
             investmentDuration: enteredDuration
         };
 
+        console.log(investmentData);
 
+        setEnteredCurrent('');
+        setEnteredYearly('');
+        setEnteredInterest('');
+        setEnteredDuration('');
     }
 
     return (
