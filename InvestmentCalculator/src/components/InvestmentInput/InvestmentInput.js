@@ -31,7 +31,7 @@ const InvestmentInput = props => {
             setEnteredInterest('');
             setEnteredDuration('');
         } else {
-            return console.log(investmentData);
+            props.result(investmentData);
         }
     };
 
