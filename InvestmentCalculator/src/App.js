@@ -4,8 +4,11 @@ import InvestmentInput from './components/InvestmentInput/InvestmentInput';
 import InvestmentListResults from './components/InvestmentListResults/InvestmentListResults';
 
 function App() {
+  let initialInput = [];
+
   const calculateResult = (userInput) => {
-    console.log(userInput);
+    initialInput.push(userInput);
+    console.log(initialInput);
   }
 
   return (
@@ -19,7 +22,7 @@ function App() {
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
 
-      <InvestmentListResults />
+      <InvestmentListResults inputToCalculate={initialInput} />
     </div>
   );
 }
