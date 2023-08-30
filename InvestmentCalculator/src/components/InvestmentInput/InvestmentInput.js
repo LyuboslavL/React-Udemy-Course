@@ -25,15 +25,15 @@ const InvestmentInput = props => {
             investmentDuration: enteredDuration
         };
 
-        if (event.target.className === 'buttonAlt') {
-            setEnteredCurrent('');
-            setEnteredYearly('');
-            setEnteredInterest('');
-            setEnteredDuration('');
-        } else {
-            props.result(investmentData);
-        }
+        props.result(investmentData);
     };
+
+    const resetHandler = () => {
+        setEnteredCurrent('');
+        setEnteredYearly('');
+        setEnteredInterest('');
+        setEnteredDuration('');
+    }
 
     return (
         <form className="form" onSubmit={formSubmitHandler}>
@@ -60,7 +60,7 @@ const InvestmentInput = props => {
                 </p>
             </div>
             <p className="actions">
-                <button type="reset" className="buttonAlt">
+                <button onClick={resetHandler} type="reset" className="buttonAlt">
                     Reset
                 </button>
                 <button type="submit" className="button" >
