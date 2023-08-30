@@ -1,7 +1,6 @@
-import logo from './assets/investment-calculator-logo.png';
-
 import InvestmentInput from './components/InvestmentInput/InvestmentInput';
 import InvestmentListResults from './components/InvestmentListResults/InvestmentListResults';
+import SiteHeader from './components/SiteHeader/SiteHeader';
 
 function App() {
   let initialInput = [];
@@ -13,10 +12,7 @@ function App() {
 
   return (
     <div>
-      <header className="header">
-        <img src={logo} alt="logo" />
-        <h1>Investment Calculator</h1>
-      </header>
+      <SiteHeader />
       <InvestmentInput result={calculateResult} />
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
