@@ -3,24 +3,41 @@ import InvestmentListResults from './components/InvestmentListResults/Investment
 import SiteHeader from './components/SiteHeader/SiteHeader';
 
 function App() {
-  let initialInput = [];
+  const calculateHandler = (userInput) => {
+    console.log(userInput)
+    const yearlyData = []; // per-year results
 
-  const calculateResult = (userInput) => {
-    initialInput.push(userInput);
-    console.log(initialInput);
+    let currentSavings = +userInput['currentSavings'];
+    const yearlyContribution = +userInput['yearlySavings'];
+    const expectedReturn = +userInput['expectedInterest'] / 100;
+    const duration = +userInput['investmentDuration'];
+
+    // The below code calculates yearly results (total savings, interest etc)
+    for (let i = 0; i < duration; i++) {
+      const yearlyInterest = currentSavings * expectedReturn;
+      currentSavings += yearlyInterest + yearlyContribution;
+      yearlyData.push({
+        // feel free to change the shape of the data pushed to the array!
+        year: i + 1,
+        yearlyInterest: yearlyInterest,
+        savingsEndOfYear: currentSavings,
+        yearlyContribution: yearlyContribution,
+      });
+    }
   }
 
   return (
     <div>
       <SiteHeader />
-      <InvestmentInput result={calculateResult} />
+      <InvestmentInput onCalculate={calculateHandler} />
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
 
-      <InvestmentListResults inputToCalculate={initialInput} />
+      <InvestmentListResults />
     </div>
   );
 }
+
 
 export default App;

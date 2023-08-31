@@ -25,7 +25,7 @@ const InvestmentInput = props => {
             investmentDuration: enteredDuration
         };
 
-        props.result(investmentData);
+        props.onCalculate(investmentData);
     };
 
     const resetHandler = () => {
