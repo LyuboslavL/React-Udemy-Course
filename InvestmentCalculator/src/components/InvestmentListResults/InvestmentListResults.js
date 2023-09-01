@@ -15,15 +15,15 @@ export default function InvestmentListResults(props) {
         </tr>
       </thead>
       <tbody>
-        {props.result.map(el => {
-          return (
-            <tr>
-              <td>{el.year}</td>
-              <td>{el.savingsEndOfYear}</td>
-              <td>{el.yearlyInterest}</td>
-              <td>{el.yearlyContribution}</td>
-            </tr>)
-        })}
+        {props.data.map((yearData) => (
+          <tr key={yearData.year}>
+            <td>{yearData.year}</td>
+            <td>{yearData.savingsEndOfYear}</td>
+            <td>{yearData.yearlyInterest}</td>
+            <td>{yearData.savingsEndOfYear - props.initialInvestment - yearData.yearlyContribution * yearData.year}</td>
+            <td>{yearData.yearlyContribution * yearData.year}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   )

@@ -1,11 +1,20 @@
+import React, { useState } from 'react'
+
 import InvestmentInput from './components/InvestmentInput/InvestmentInput';
 import InvestmentListResults from './components/InvestmentListResults/InvestmentListResults';
 import SiteHeader from './components/SiteHeader/SiteHeader';
 
 function App() {
-  const yearlyData = []; // per-year results
-  const calculateHandler = (userInput) => {
+  const [userInput, setResult] = useState(null);
 
+
+  const calculateHandler = (userInput) => {
+    setResult(userInput);
+  };
+
+  const yearlyData = []; // per-year results
+
+  if (userInput) {
     let currentSavings = +userInput['currentSavings'];
     const yearlyContribution = +userInput['yearlySavings'];
     const expectedReturn = +userInput['expectedInterest'] / 100;
@@ -22,8 +31,6 @@ function App() {
         yearlyContribution: yearlyContribution,
       });
     }
-
-    return yearlyData;
   }
 
   return (
@@ -31,10 +38,8 @@ function App() {
       <SiteHeader />
       <InvestmentInput onCalculate={calculateHandler} />
 
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
-
-      <InvestmentListResults result={yearlyData} />
+      {!userInput && <p>No investment calculated yet.</p>}
+      {userInput && <InvestmentListResults data={yearlyData} initialInvestment={userInput['currentSavings']} />}
     </div>
   );
 }

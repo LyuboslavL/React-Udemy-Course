@@ -33,6 +33,7 @@ const InvestmentInput = props => {
         setEnteredYearly('');
         setEnteredInterest('');
         setEnteredDuration('');
+        props.onCalculate(null)
     }
 
     return (
