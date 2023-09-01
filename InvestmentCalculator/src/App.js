@@ -39,7 +39,7 @@ function App() {
       <InvestmentInput onCalculate={calculateHandler} />
 
       {!userInput && <p>No investment calculated yet.</p>}
-      {userInput && <InvestmentListResults data={yearlyData} initialInvestment={userInput['currentSavings']} />}
+      {userInput && <InvestmentListResults data={yearlyData} initialInvestment={Number(userInput["currentSavings"])} />}
     </div>
   );
 }
