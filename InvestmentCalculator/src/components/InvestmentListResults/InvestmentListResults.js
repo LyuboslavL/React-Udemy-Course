@@ -21,7 +21,7 @@ export default function InvestmentListResults(props) {
             <td>{yearData.savingsEndOfYear}</td>
             <td>{yearData.yearlyInterest}</td>
             <td>{yearData.savingsEndOfYear - props.initialInvestment - yearData.yearlyContribution * yearData.year}</td>
-            <td>{yearData.yearlyContribution * yearData.year}</td>
+            <td>{props.initialInvestment + yearData.yearlyContribution * yearData.year}</td>
           </tr>
         ))}
       </tbody>
