@@ -3,9 +3,8 @@ import InvestmentListResults from './components/InvestmentListResults/Investment
 import SiteHeader from './components/SiteHeader/SiteHeader';
 
 function App() {
+  const yearlyData = []; // per-year results
   const calculateHandler = (userInput) => {
-    console.log(userInput)
-    const yearlyData = []; // per-year results
 
     let currentSavings = +userInput['currentSavings'];
     const yearlyContribution = +userInput['yearlySavings'];
@@ -17,13 +16,14 @@ function App() {
       const yearlyInterest = currentSavings * expectedReturn;
       currentSavings += yearlyInterest + yearlyContribution;
       yearlyData.push({
-        // feel free to change the shape of the data pushed to the array!
         year: i + 1,
         yearlyInterest: yearlyInterest,
         savingsEndOfYear: currentSavings,
         yearlyContribution: yearlyContribution,
       });
     }
+
+    return yearlyData;
   }
 
   return (
@@ -34,7 +34,7 @@ function App() {
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
 
-      <InvestmentListResults />
+      <InvestmentListResults result={yearlyData} />
     </div>
   );
 }
