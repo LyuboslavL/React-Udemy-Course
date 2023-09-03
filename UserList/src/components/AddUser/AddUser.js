@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from '../../components/UI/Button/Button';
+
 const AddUser = (props) => {
     return (
         <form>
@@ -9,6 +11,7 @@ const AddUser = (props) => {
                 <label>Age (Years)</label>
                 <input type='text'></input>
             </div>
+            <Button type='submit'>Add User</Button>
         </form>
     )
 };
