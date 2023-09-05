@@ -5,9 +5,13 @@ import UserList from './components/UserList/UserList';
 
 
 function App() {
+  const addedUser = (userInput) => {
+    console.log(userInput);
+  }
+
   return (
     <div>
-      <AddUser />
+      <AddUser onAddedUser={addedUser} />
     </div>
   );
 }

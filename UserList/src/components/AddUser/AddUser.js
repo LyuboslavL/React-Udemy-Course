@@ -17,7 +17,7 @@ const AddUser = (props) => {
             age: enteredAge
         };
 
-        console.log(newUser);
+        props.onAddedUser(newUser);
     }
 
     return (
