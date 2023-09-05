@@ -12,6 +12,16 @@ const AddUser = (props) => {
 
     const formSubmitHandler = event => {
         event.preventDefault();
+
+        if (enteredUsername === '' || enteredAge === '') {
+            alert('All fields are required!')
+        } else if (enteredAge < 0) {
+            alert('You must enter a valid age');
+        }
+        // else if (/\d/.test(enteredUsername)) {
+        //     alert('You must enter a valid name')
+        // }
+
         const newUser = {
             username: enteredUsername,
             age: enteredAge
@@ -29,7 +39,7 @@ const AddUser = (props) => {
                 </div>
                 <div className='add-user__input'>
                     <label>Age (Years)</label>
-                    <input type='text' onChange={ageChangeHandler}></input>
+                    <input type='number' onChange={ageChangeHandler}></input>
                 </div>
                 <div className='add_user__action'>
                     <Button type='submit'>Add User</Button>
