@@ -5,17 +5,17 @@ import UserList from './components/UserList/UserList';
 
 
 function App() {
-  // const [userInput, setResult] = useState(null);
-  let userInfo = [];
+  const [userInput, setResult] = useState(null);
 
-  const addedUser = (userInput) => {
-    userInfo.push(userInput);
+  const addedUser = (user) => {
+    setResult(user);
   }
 
   return (
     <div>
       <AddUser onAddedUser={addedUser} />
-      <UserList data={userInfo} />
+      {!userInput && <p style={{ textAlign: 'center' }}>No users added yet.</p>}
+      {userInput && <UserList data={userInput} />}
     </div>
   );
 }
