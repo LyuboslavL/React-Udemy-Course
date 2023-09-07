@@ -5,17 +5,20 @@ import UserList from './components/UserList/UserList';
 
 
 function App() {
-  const [userInput, setResult] = useState(null);
+  const [userInput, setResult] = useState([]);
 
   const addedUser = (user) => {
-    setResult(user);
+    setResult((prevUsers) => {
+      const updatedUsersList = [...prevUsers];
+      updatedUsersList.unshift(user);
+      return updatedUsersList;
+    });
   }
 
   return (
     <div>
       <AddUser onAddedUser={addedUser} />
-      {!userInput && <p style={{ textAlign: 'center' }}>No users added yet.</p>}
-      {userInput && <UserList data={userInput} />}
+      {userInput.length < 1 ? <p style={{ textAlign: 'center' }}>No users added yet.</p> : <UserList data={userInput} />}
     </div>
   );
 }
