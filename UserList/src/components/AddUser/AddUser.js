@@ -14,9 +14,9 @@ const AddUser = (props) => {
         event.preventDefault();
 
         if (enteredUsername === '' || enteredAge === '') {
-            alert('All fields are required!')
+            return alert('All fields are required!');
         } else if (enteredAge < 0) {
-            alert('You must enter a valid age');
+            return alert('You must enter a valid age');
         }
         // else if (/\d/.test(enteredUsername)) {
         //     alert('You must enter a valid name')
@@ -27,6 +27,8 @@ const AddUser = (props) => {
             age: enteredAge
         };
 
+        setUsername('');
+        setAge('');
         props.onAddedUser(newUser);
     }
 
