@@ -27,9 +27,9 @@ const AddUser = (props) => {
             age: enteredAge
         };
 
+        props.onAddedUser(newUser);
         setUsername('');
         setAge('');
-        props.onAddedUser(newUser);
     }
 
     return (
@@ -37,11 +37,11 @@ const AddUser = (props) => {
             <div className='add-user'>
                 <div className='add-user__input'>
                     <label>Username</label>
-                    <input type="text" onChange={usernameChangeHandler}></input>
+                    <input type="text" value={enteredUsername} onChange={usernameChangeHandler}></input>
                 </div>
                 <div className='add-user__input'>
                     <label>Age (Years)</label>
-                    <input type='number' onChange={ageChangeHandler}></input>
+                    <input type='number' value={enteredAge} onChange={ageChangeHandler}></input>
                 </div>
                 <div className='add_user__action'>
                     <Button type='submit'>Add User</Button>
