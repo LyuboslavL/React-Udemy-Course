@@ -4,14 +4,14 @@ import Button from '../UI/Button/Button'
 
 const ErrorModal = props => {
     return (
-        <section>
+        <section className='modal-container'>
             <header>
                 <h2>Error!</h2>
             </header>
-            <div>
+            <div className='error-msg'>
                 <p>{props.children}</p>
             </div>
-            <footer>
+            <footer className='modal-close'>
                 <Button>Close</Button>
             </footer>
         </section>

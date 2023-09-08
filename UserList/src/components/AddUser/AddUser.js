@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 
 import './AddUser.css';
 import Button from '../../components/UI/Button/Button';
+import ErrorModal from '../../components/ErrorModal/ErrorModal';
 
 const AddUser = (props) => {
     const [enteredUsername, setUsername] = useState('');
     const [enteredAge, setAge] = useState('');
+    const [error, setError] = useState('');
 
     const usernameChangeHandler = (event) => setUsername(event.target.value);
     const ageChangeHandler = (event) => setAge(event.target.value);
@@ -14,9 +16,11 @@ const AddUser = (props) => {
         event.preventDefault();
 
         if (enteredUsername.trim() === '' || enteredAge.trim() === '') {
-            return alert('All fields are required!');
+            setError({ message: 'All fields are required!' });
+            return <ErrorModal>{error.message}</ErrorModal>
         } else if (enteredAge < 0) {
-            return alert('You must enter a valid age');
+            setError({ message: 'You must enter a valid age!' });
+            return <ErrorModal>{error.message}</ErrorModal>
         }
         // else if (/\d/.test(enteredUsername)) {
         //     alert('You must enter a valid name')
