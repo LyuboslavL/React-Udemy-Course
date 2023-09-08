@@ -13,7 +13,7 @@ const AddUser = (props) => {
     const formSubmitHandler = event => {
         event.preventDefault();
 
-        if (enteredUsername === '' || enteredAge === '') {
+        if (enteredUsername.trim() === '' || enteredAge.trim() === '') {
             return alert('All fields are required!');
         } else if (enteredAge < 0) {
             return alert('You must enter a valid age');
