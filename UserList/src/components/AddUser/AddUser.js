@@ -7,7 +7,7 @@ import ErrorModal from '../../components/ErrorModal/ErrorModal';
 const AddUser = (props) => {
     const [enteredUsername, setUsername] = useState('');
     const [enteredAge, setAge] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState();
 
     const usernameChangeHandler = (event) => setUsername(event.target.value);
     const ageChangeHandler = (event) => setAge(event.target.value);
@@ -16,11 +16,13 @@ const AddUser = (props) => {
         event.preventDefault();
 
         if (enteredUsername.trim() === '' || enteredAge.trim() === '') {
-            setError({ message: 'All fields are required!' });
-            return <ErrorModal>{error.message}</ErrorModal>
+            setError(true);
+            let message = 'All fields are required!'
+            return <ErrorModal>{message}</ErrorModal>
         } else if (enteredAge < 0) {
-            setError({ message: 'You must enter a valid age!' });
-            return <ErrorModal>{error.message}</ErrorModal>
+            setError(true);
+            let message = 'You must enter a valid age!';
+            return <ErrorModal>{message}</ErrorModal>
         }
         // else if (/\d/.test(enteredUsername)) {
         //     alert('You must enter a valid name')
