@@ -1,28 +1,3 @@
-/* .add-user {
-  background-color: rgb(255, 255, 255);
-  padding: 50px;
-  margin: 2rem auto;
-  width: 400px;
-  max-width: 95%;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
-  font-weight: bold;
-}
-
-.add-user__input {
-  font: inherit;
-  padding: 0.5rem;
-  border-radius: 6px;
-  width: 20rem;
-  max-width: 100%;
-}
-
-.add-user__actions {
-  text-align: left;
-}
-   */
-
 .add-user {
   background: white; 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
