@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './Card.css'
+
 const Card = (props) => {
     return (
-        <li className='user-card'>
+        <li>
             {props.children}
         </li>
     );
