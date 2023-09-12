@@ -5,9 +5,9 @@ import Card from '../Card/Card';
 
 const UserList = (props) => {
     return (
-        <ul className='result'>
-            {props.data.map(user => (
-                <Card key={Math.random()}>{user.username} {user.age}</Card>
+        <ul className='users'>
+            {props.users.map(user => (
+                <Card key={Math.random()}>{user.username} ({user.age} years old)</Card>
             ))}
         </ul>
     );

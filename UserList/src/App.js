@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <AddUser onAddedUser={addedUser} />
-      {userInput.length < 1 ? <p style={{ textAlign: 'center' }}>No users added yet.</p> : <UserList data={userInput} />}
+      {userInput.length < 1 ? <p style={{ textAlign: 'center' }}>No users added yet.</p> : <UserList users={userInput} />}
     </div>
   );
 }
