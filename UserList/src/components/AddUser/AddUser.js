@@ -16,13 +16,9 @@ const AddUser = (props) => {
         event.preventDefault();
 
         if (enteredUsername.trim() === '' || enteredAge.trim() === '' || enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
-            setError(true);
-            let message = 'All fields are required!'
-            return <ErrorModal>{message}</ErrorModal>
+            setError({ title: 'Invalid input', message: 'All fields are required!' });
         } else if (+enteredAge < 0) {
-            setError(true);
-            let message = 'You must enter a valid age!';
-            return <ErrorModal>{message}</ErrorModal>
+            setError({ title: 'Invalid age', message: 'Age must be a positive number!' });
         }
         // else if (/\d/.test(enteredUsername)) {
         //     alert('You must enter a valid name')
@@ -40,7 +36,7 @@ const AddUser = (props) => {
 
     return (
         <div>
-            <ErrorModal title='An error occured!' message='Something went wrong!' />
+            {error !== undefined ? <ErrorModal title={error.title} message={error.message} /> : ''};
             <form onSubmit={formSubmitHandler}>
                 <div className='add-user'>
                     <label htmlFor='username'>Username</label>
