@@ -12,6 +12,9 @@ function App() {
       const updatedUsersList = [...prevUsers];
       updatedUsersList.unshift(user);
       return updatedUsersList;
+
+      // Alternative way with less code lines
+      // return [...prevUsers, {username: user.username, age: user.age}]
     });
   }
 
