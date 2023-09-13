@@ -34,11 +34,15 @@ const AddUser = (props) => {
         props.onAddedUser(newUser);
         setUsername('');
         setAge('');
+    };
+
+    const errorHandler = () => {
+        setError(null);
     }
 
     return (
         <div>
-            {error && <ErrorModal title={error.title} message={error.message} />}
+            {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler} />}
             <form onSubmit={formSubmitHandler}>
                 <div className='add-user'>
                     <label htmlFor='username'>Username</label>
