@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './AddUser.css';
 import Button from '../../components/UI/Button/Button';
-import ErrorModal from '../../components/ErrorModal/ErrorModal';
+import ErrorModal from '../../components/UI/ErrorModal/ErrorModal';
 
 const AddUser = (props) => {
     const [enteredUsername, setUsername] = useState('');
@@ -39,15 +39,18 @@ const AddUser = (props) => {
     }
 
     return (
-        <form onSubmit={formSubmitHandler}>
-            <div className='add-user'>
-                <label htmlFor='username'>Username</label>
-                <input id='username' type="text" value={enteredUsername} onChange={usernameChangeHandler}></input>
-                <label htmlFor='age'>Age (Years)</label>
-                <input id='age' type='number' value={enteredAge} onChange={ageChangeHandler}></input>
-                <Button type='submit'>Add User</Button>
-            </div>
-        </form>
+        <div>
+            <ErrorModal title='An error occured!' message='Something went wrong!' />
+            <form onSubmit={formSubmitHandler}>
+                <div className='add-user'>
+                    <label htmlFor='username'>Username</label>
+                    <input id='username' type="text" value={enteredUsername} onChange={usernameChangeHandler}></input>
+                    <label htmlFor='age'>Age (Years)</label>
+                    <input id='age' type='number' value={enteredAge} onChange={ageChangeHandler}></input>
+                    <Button type='submit'>Add User</Button>
+                </div>
+            </form>
+        </div>
     )
 };
 
