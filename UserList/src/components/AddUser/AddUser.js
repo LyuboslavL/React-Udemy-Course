@@ -19,7 +19,7 @@ const AddUser = (props) => {
             setError(true);
             let message = 'All fields are required!'
             return <ErrorModal>{message}</ErrorModal>
-        } else if (enteredAge < 0) {
+        } else if (+enteredAge < 0) {
             setError(true);
             let message = 'You must enter a valid age!';
             return <ErrorModal>{message}</ErrorModal>
