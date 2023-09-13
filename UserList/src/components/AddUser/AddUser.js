@@ -17,8 +17,10 @@ const AddUser = (props) => {
 
         if (enteredUsername.trim() === '' || enteredAge.trim() === '' || enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
             setError({ title: 'Invalid input', message: 'All fields are required!' });
+            return;
         } else if (+enteredAge < 0) {
             setError({ title: 'Invalid age', message: 'Age must be a positive number!' });
+            return;
         }
         // else if (/\d/.test(enteredUsername)) {
         //     alert('You must enter a valid name')
@@ -36,7 +38,7 @@ const AddUser = (props) => {
 
     return (
         <div>
-            {error !== undefined ? <ErrorModal title={error.title} message={error.message} /> : ''};
+            {error && <ErrorModal title={error.title} message={error.message} />}
             <form onSubmit={formSubmitHandler}>
                 <div className='add-user'>
                     <label htmlFor='username'>Username</label>
