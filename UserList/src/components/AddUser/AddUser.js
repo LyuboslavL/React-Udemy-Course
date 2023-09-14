@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './AddUser.css';
 import Button from '../../components/UI/Button/Button';
 import ErrorModal from '../../components/UI/ErrorModal/ErrorModal';
+import Wrapper from '../Helpers/Wrapper';
 
 const AddUser = (props) => {
     const [enteredUsername, setUsername] = useState('');
@@ -41,7 +42,7 @@ const AddUser = (props) => {
     }
 
     return (
-        <div>
+        <Wrapper>
             {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler} />}
             <form onSubmit={formSubmitHandler}>
                 <div className='add-user'>
@@ -52,7 +53,7 @@ const AddUser = (props) => {
                     <Button type='submit'>Add User</Button>
                 </div>
             </form>
-        </div>
+        </Wrapper>
     )
 };
 
