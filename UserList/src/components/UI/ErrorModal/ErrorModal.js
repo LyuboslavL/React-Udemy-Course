@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import Button from '../Button/Button';
 import classes from './ErrorModal.module.css';
-import Wrapper from '../../Helpers/Wrapper';
 
 const Backdrop = props => {
     return (
