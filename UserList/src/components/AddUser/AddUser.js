@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import './AddUser.css';
 import Button from '../../components/UI/Button/Button';
@@ -6,20 +6,21 @@ import ErrorModal from '../../components/UI/ErrorModal/ErrorModal';
 import Wrapper from '../Helpers/Wrapper';
 
 const AddUser = (props) => {
-    const [enteredUsername, setUsername] = useState('');
-    const [enteredAge, setAge] = useState('');
-    const [error, setError] = useState();
+    const nameInputRef = useRef();
+    const ageInputRef = useRef();
 
-    const usernameChangeHandler = (event) => setUsername(event.target.value);
-    const ageChangeHandler = (event) => setAge(event.target.value);
+    const [error, setError] = useState();
 
     const formSubmitHandler = event => {
         event.preventDefault();
 
-        if (enteredUsername.trim() === '' || enteredAge.trim() === '' || enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+        const enteredName = nameInputRef.current.value;
+        const enteredUserAge = ageInputRef.current.value;
+
+        if (enteredName.trim() === '' || enteredUserAge.trim() === '' || enteredName.trim().length === 0 || enteredUserAge.trim().length === 0) {
             setError({ title: 'Invalid input', message: 'All fields are required!' });
             return;
-        } else if (+enteredAge < 0) {
+        } else if (+enteredUserAge < 0) {
             setError({ title: 'Invalid age', message: 'Age must be a positive number!' });
             return;
         }
@@ -28,13 +29,13 @@ const AddUser = (props) => {
         // }
 
         const newUser = {
-            username: enteredUsername,
-            age: enteredAge
+            username: enteredName,
+            age: enteredUserAge
         };
 
         props.onAddedUser(newUser);
-        setUsername('');
-        setAge('');
+        nameInputRef.current.value = '';
+        ageInputRef.current.value = '';
     };
 
     const errorHandler = () => {
@@ -47,9 +48,9 @@ const AddUser = (props) => {
             <form onSubmit={formSubmitHandler}>
                 <div className='add-user'>
                     <label htmlFor='username'>Username</label>
-                    <input id='username' type="text" value={enteredUsername} onChange={usernameChangeHandler}></input>
+                    <input id='username' type="text" ref={nameInputRef}></input>
                     <label htmlFor='age'>Age (Years)</label>
-                    <input id='age' type='number' value={enteredAge} onChange={ageChangeHandler}></input>
+                    <input id='age' type='number' ref={ageInputRef}></input>
                     <Button type='submit'>Add User</Button>
                 </div>
             </form>
