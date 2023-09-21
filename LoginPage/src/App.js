@@ -14,7 +14,6 @@ function App() {
   }, [])
 
   const loginHandler = (email, password) => {
-
     sessionStorage.setItem('email', email);
     setIsLoggedIn(true);
   };
