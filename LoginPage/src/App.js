@@ -20,6 +20,7 @@ function App() {
   };
 
   const logoutHandler = () => {
+    sessionStorage.clear();
     setIsLoggedIn(false);
   };
 
