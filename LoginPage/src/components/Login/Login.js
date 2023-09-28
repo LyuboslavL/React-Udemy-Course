@@ -47,7 +47,10 @@ const Login = (props) => {
   const { isValid: isPasswordValid } = passwordState;
 
   useEffect(() => {
-    const identifier = setTimeout(() => { setFormIsValid(isEmailValid && isPasswordValid); }, 500);
+    const identifier = setTimeout(() => {
+      setFormIsValid(isEmailValid && isPasswordValid);
+    }, 500);
+
     return () => {
       clearTimeout(identifier);
     };
@@ -71,7 +74,12 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, passwordState.value);
+
+    if (formIsValid) {
+      props.onLogin(emailState.value, passwordState.value);
+    } else {
+
+    }
   };
 
   return (
