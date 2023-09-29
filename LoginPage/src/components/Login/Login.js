@@ -81,9 +81,9 @@ const Login = (props) => {
     if (formIsValid) {
       props.onLogin(emailState.value, passwordState.value);
     } else if (!isEmailValid) {
-      emailInputRef.current.activate();
+      emailInputRef.current.focus();
     } else {
-      passwordInputRef.current.activate();
+      passwordInputRef.current.focus();
     }
   };
 
