@@ -1,16 +1,16 @@
 import React from 'react';
 
 import Header from './components/Layout/Header';
-import MealsSummary from './components/Layout/MealsSummary';
-import AvailableMeals from './components/Layout/AvailableMeals';
+import Meals from './components/Meals/Meals';
 
 function App() {
 
   return (
     <>
       <Header />
-      <MealsSummary />
-      <AvailableMeals />
+      <main>
+        <Meals />
+      </main>
     </>
   );
 }
