@@ -11,8 +11,7 @@ const MealItemForm = props => {
                 type: 'number',
                 min: '1',
                 max: '20',
-                step: '1',
-                defaulValue: '1'
+                step: '1'
             }} />
             <button>Add</button>
         </form>
