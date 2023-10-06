@@ -28,15 +28,20 @@ const DUMMY_MEALS = [
         name: 'Texas Burger',
         description: 'A meal to cowboy for',
         price: 13.99
-    }
-];
+    },
+]
 
 const AvailableMeals = () => {
     return (
         <section>
             <Card>
                 <ul className={classes.meals}>
-                    {DUMMY_MEALS.map(meal => <MealItem key={meal.id} name={meal.name} description={meal.description} price={meal.price} />)};
+                    {DUMMY_MEALS.map(meal => <MealItem
+                        key={meal.id}
+                        name={meal.name}
+                        description={meal.description}
+                        price={meal.price}
+                    />)}
                 </ul>
             </Card>
         </section>
