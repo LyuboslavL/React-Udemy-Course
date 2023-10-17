@@ -3,13 +3,9 @@ import React from 'react';
 import CartContext from './cart-context';
 
 const CartProvider = (props) => {
-    const addToCartHandler = item => {
+    const addToCartHandler = item => { };
 
-    };
-
-    const removeFromCartHandler = id => {
-
-    }
+    const removeFromCartHandler = id => { }
 
     const cartContext = {
         items: [],
