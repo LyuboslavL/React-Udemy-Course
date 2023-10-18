@@ -35,7 +35,7 @@ const MealItemForm = props => {
                     step: '1'
                 }} />
             <button>Add</button>
-            {!amountIsValid && <p>Please enter a valid amount (1-20).</p>}
+            {/* {!amountIsValid && <p>Please enter a valid amount (1-20).</p>} */}
         </form>
     )
 };

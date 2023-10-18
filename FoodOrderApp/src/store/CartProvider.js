@@ -15,8 +15,8 @@ const cartReducer = (state, action) => {
             items: updatedItems,
             totalAmount: updatedTotalAmount
         });
-    } else {
-
+    } else if (action.type === 'REMOVE') {
+        const searchedItem = state.items.filter(action.item.id === 'id');
     }
     return defaultCartState;
 };
