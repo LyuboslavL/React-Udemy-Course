@@ -38,9 +38,13 @@ const cartReducer = (state, action) => {
         });
 
     } else if (action.type === 'REMOVE') {
-        console.log(action.id);
-        // const searchedItem = state.items.findIndex((item) => item.id === action.item.id);
-        // console.log(searchedItem);
+        const searchedItemIndex = state.items.findIndex((item) => item.id === action.id);
+        const searchedItem = state.items[searchedItemIndex];
+
+        if (searchedItem.amount > 1) {
+            searchedItem.amount -= 1;
+            console.log(searchedItem);
+        }
     };
 
     return defaultCartState;
