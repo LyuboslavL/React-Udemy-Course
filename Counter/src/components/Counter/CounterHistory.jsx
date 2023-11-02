@@ -1,7 +1,31 @@
-import { useState } from 'react';
+import { useState, Component } from 'react';
 
 import { log } from '../../log.js';
 
+class HistoryItem extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selected: false,
+    }
+  }
+
+  handleClick() {
+    this.setState((curState) => {
+      return { selected: !curState.selected }
+    });
+  };
+
+  render() {
+    return (
+      <li onClick={this.handleClick.bind(this)} className={this.state.selected ? 'selected' : undefined}>
+        {this.props.count}
+      </li>
+    );
+  }
+}
+
+/* 
 function HistoryItem({ count }) {
   log('<HistoryItem /> rendered', 3);
 
@@ -17,6 +41,7 @@ function HistoryItem({ count }) {
     </li>
   );
 }
+*/
 
 export default function CounterHistory({ history }) {
   log('<CounterHistory /> rendered', 2);
