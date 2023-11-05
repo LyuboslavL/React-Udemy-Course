@@ -10,6 +10,8 @@ export default function AvailablePlaces({ onSelectPlace }) {
       const data = await response.json();
       setAvailablePlaces(data); 
     }
+
+    fetchPlaces();
   }, [])
 
   return (
