@@ -12,7 +12,7 @@ export default function AvailablePlaces({ onSelectPlace }) {
       setIsFatching(true);
       
       try {
-        const response = await fetch('http://localhost:3000/placessss');
+        const response = await fetch('http://localhost:3000/places');
         const data = await response.json();
         
         if (!response.ok) {
