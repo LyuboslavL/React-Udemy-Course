@@ -4,13 +4,13 @@ import Error from './Error.jsx';
 import sortPlacesByDistance from '../loc.js';
 
 export default function AvailablePlaces({ onSelectPlace }) {
-  const [isFatching, setIsFatching] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
   const [availablePlaces, setAvailablePlaces] = useState([]);
   const [error, setError] = useState();
 
   useEffect(() => {
     async function fetchPlaces() {
-      setIsFatching(true);
+      setIsFetching(true);
 
       try {
         const response = await fetch('http://localhost:3000/places');
@@ -23,13 +23,13 @@ export default function AvailablePlaces({ onSelectPlace }) {
         navigator.geolocation.getCurrentPosition((position) => {
           const sortedPlaces = sortPlacesByDistance(data.places, position.coords.latitude, position.coords.longitude);
           setAvailablePlaces(sortedPlaces);
+          setIsFetching(false);
         });
 
       } catch (error) {
         setError({ message: error.message || 'Error occured' });
+        setIsFetching(false);
       }
-
-      setIsFatching(false);
     }
 
     fetchPlaces();
@@ -43,7 +43,7 @@ export default function AvailablePlaces({ onSelectPlace }) {
     <Places
       title="Available Places"
       places={availablePlaces}
-      isLoading={isFatching}
+      isLoading={isFetching}
       loadingText="Loading places..."
       fallbackText="No places available."
       onSelectPlace={onSelectPlace}
