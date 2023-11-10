@@ -6,6 +6,7 @@ import DeleteConfirmation from './components/DeleteConfirmation.jsx';
 import logoImg from './assets/logo.png';
 import AvailablePlaces from './components/AvailablePlaces.jsx';
 import { updateUserPlaces } from '../src/http.js';
+import Error from './components/Error.jsx';
 
 function App() {
   const selectedPlace = useRef();
@@ -24,6 +25,11 @@ function App() {
   }
 
   async function handleSelectPlace(selectedPlace) {
+    /* Data can be fetched here, but in that case we need a loading spinner or something to tell the user the data is loading 
+    or the user might think the app is stuck.
+
+    await updateUserPlaces([selectedPlace, ...userPlaces]);
+    */
     setUserPlaces((prevPickedPlaces) => {
       if (!prevPickedPlaces) {
         prevPickedPlaces = [];
@@ -37,8 +43,9 @@ function App() {
     try {
       await updateUserPlaces([selectedPlace, ...userPlaces]);
     } catch(error) {
+      setUserPlaces(userPlaces)
       setError({ message: error.message || 'Error occured'})
-    }
+    };
   }
 
   const handleRemovePlace = useCallback(async function handleRemovePlace() {
@@ -49,8 +56,20 @@ function App() {
     setModalIsOpen(false);
   }, []);
 
+  const handleError = () => {
+    setError(null);
+  }
+
   return (
     <>
+      <Modal open={error} onClose={handleError}>
+        {error && <Error 
+          title='An error occurred!' 
+          message={error.message}
+          onConfirm={handleError}  
+        />}
+      </Modal>
+
       <Modal open={modalIsOpen} onClose={handleStopRemovePlace}>
         <DeleteConfirmation
           onCancel={handleStopRemovePlace}
