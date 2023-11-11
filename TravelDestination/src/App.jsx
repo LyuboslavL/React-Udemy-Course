@@ -13,10 +13,19 @@ function App() {
   const [userPlaces, setUserPlaces] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     async function fetchPlaces() {
-      const places = await fetchUserPlaces();
-      setUserPlaces(places);
+      setIsLoading(true);
+
+      try {
+        const places = await fetchUserPlaces();
+        setUserPlaces(places);
+      } catch (error) {
+        setError(error.message || `Failed loading user's places`);
+        setIsLoading(false);
+      }
     }
 
     fetchPlaces();
