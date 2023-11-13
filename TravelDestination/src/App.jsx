@@ -10,6 +10,7 @@ import Error from "./components/Error.jsx";
 
 function App() {
   const selectedPlace = useRef();
+
   const [userPlaces, setUserPlaces] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [error, setError] = useState();
@@ -24,8 +25,9 @@ function App() {
         setUserPlaces(places);
       } catch (error) {
         setError(error.message || `Failed loading user's places`);
-        setIsLoading(false);
       }
+
+      setIsLoading(false);
     }
 
     fetchPlaces();
@@ -118,12 +120,15 @@ function App() {
         </p>
       </header>
       <main>
-        <Places
+        {error && <Error title="An error occurred!" message={error.message} />}
+        {!error && (<Places
           title="I'd like to visit ..."
           fallbackText="Select the places you would like to visit below."
+          isLoading={isLoading}
+          loadingText="Loading your places..."
           places={userPlaces}
           onSelectPlace={handleStartRemovePlace}
-        />
+        />)};
 
         <AvailablePlaces onSelectPlace={handleSelectPlace} />
       </main>
