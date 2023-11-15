@@ -1,6 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function useFetch() {
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState();
+    const [fetchedData, setFetchedData] = useState();
+
     useEffect(() => {
         async function fetchPlaces() {
             setIsLoading(true);
