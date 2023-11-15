@@ -1,24 +1,30 @@
 import { useEffect, useState } from 'react';
 
-function useFetch() {
+function useFetch(fetchFn) {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState();
     const [fetchedData, setFetchedData] = useState();
 
     useEffect(() => {
-        async function fetchPlaces() {
+        async function fetchData() {
             setIsLoading(true);
 
             try {
-                const places = await fetchUserPlaces();
-                setUserPlaces(places);
+                const data = await fetchFn();
+                setFetchedData(data);
             } catch (error) {
-                setError(error.message || `Failed loading user's places`);
+                setError(error.message || `Failed to fetch data.`);
             }
 
             setIsLoading(false);
         }
 
-        fetchPlaces();
-    }, []);
+        fetchData();
+    }, [fetchFn]);
+
+    return {
+        isLoading,
+        error,
+        fetchedData
+    };
 }
