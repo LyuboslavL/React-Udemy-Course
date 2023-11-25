@@ -7,9 +7,9 @@ export default function Login() {
   */
 
   /* useRef alternative
-   */
   const email = useRef();
   const password = useRef();
+   */
 
   const [enteredValues, setEnteredValues] = useState({
     email: "",
