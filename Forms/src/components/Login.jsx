@@ -4,6 +4,14 @@ export default function Login() {
   /* seperate useState for email and password
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
+
+  const emailChangeHandler = (event) => {
+    setEnteredEmail(event.target.value);
+  };
+
+  const passwordChangeHandler = (event) => {
+    setEnteredPassword(event.target.value);
+  };
   */
 
   /* useRef alternative
@@ -11,6 +19,7 @@ export default function Login() {
   const password = useRef();
    */
 
+  // single function and useState to deal with entered email or password
   const [enteredValues, setEnteredValues] = useState({
     email: "",
     password: "",
@@ -24,17 +33,6 @@ export default function Login() {
     // const enteredPassword = password.current.value;
   }
 
-  /* seperate handlers for email and password
-  const emailChangeHandler = (event) => {
-    setEnteredEmail(event.target.value);
-  };
-
-  const passwordChangeHandler = (event) => {
-    setEnteredPassword(event.target.value);
-  };
-  */
-
-  // single function to deal with entered email or password
   const handleInputChange = (identifier, event) => {
     setEnteredValues((prevValues) => ({
       ...prevValues,
