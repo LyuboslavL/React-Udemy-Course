@@ -24,7 +24,7 @@ export default function Signup() {
       <div className="control-row">
         <div className="control">
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" required />
+          <input id="password" type="password" name="password" required minLength={6} />
         </div>
 
         <div className="control">
@@ -93,7 +93,7 @@ export default function Signup() {
 
       <div className="control">
         <label htmlFor="terms-and-conditions">
-          <input type="checkbox" id="terms-and-conditions" name="terms" />I
+          <input type="checkbox" id="terms-and-conditions" name="terms" required/>I
           agree to the terms and conditions
         </label>
       </div>
