@@ -44,6 +44,7 @@ export default function Login() {
   const emailIsInvalid = !enteredValues.email.includes("@");
   const passwordIsInvalid = !enteredValues.password.trim().length < 6;
 
+  return (
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
 
@@ -55,7 +56,7 @@ export default function Login() {
           name="email"
           onChange={(event) => handleInputChange("email", event)}
           value={enteredValues.email}
-          error={emailIsInvalid && 'Please enter a valid email.'}
+          error={emailIsInvalid && "Please enter a valid email."}
         />
         <Input
           label="Password"
@@ -64,7 +65,7 @@ export default function Login() {
           name="password"
           onChange={(event) => handleInputChange("password", event)}
           value={enteredValues.password}
-          error={passwordIsInvalid && 'Password must be at least 6 characters.'}
+          error={passwordIsInvalid && "Password must be at least 6 characters."}
         />
       </div>
 
