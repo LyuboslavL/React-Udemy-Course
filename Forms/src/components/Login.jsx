@@ -30,7 +30,6 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(enteredValues);
     // const enteredEmail = email.current.value;
     // const enteredPassword = password.current.value;
   }
@@ -42,7 +41,9 @@ export default function Login() {
     }));
   };
 
-  return (
+  const emailIsInvalid = !enteredValues.email.includes("@");
+  const passwordIsInvalid = !enteredValues.password.trim().length < 6;
+
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
 
@@ -52,16 +53,18 @@ export default function Login() {
           id="email"
           type="email"
           name="email"
-          value={enteredValues.email}
           onChange={(event) => handleInputChange("email", event)}
+          value={enteredValues.email}
+          error={emailIsInvalid && 'Please enter a valid email.'}
         />
         <Input
           label="Password"
           id="password"
           type="password"
           name="password"
-          value={enteredValues.password}
           onChange={(event) => handleInputChange("password", event)}
+          value={enteredValues.password}
+          error={passwordIsInvalid && 'Password must be at least 6 characters.'}
         />
       </div>
 
