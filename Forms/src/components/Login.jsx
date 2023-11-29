@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 
+import Input from "./Input.jsx";
+
 export default function Login() {
   /* seperate useState for email and password
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -45,29 +47,22 @@ export default function Login() {
       <h2>Login</h2>
 
       <div className="control-row">
-        <div className="control no-margin">
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            onChange={(event) => handleInputChange("email", event)}
-            value={enteredValues.email}
-            // ref={email}
-          />
-        </div>
-
-        <div className="control no-margin">
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            onChange={(event) => handleInputChange("password", event)}
-            value={enteredValues.password}
-            // ref={password}
-          />
-        </div>
+        <Input
+          label="Email"
+          id="email"
+          type="email"
+          name="email"
+          value={enteredValues.email}
+          onChange={(event) => handleInputChange("email", event)}
+        />
+        <Input
+          label="Password"
+          id="password"
+          type="password"
+          name="password"
+          value={enteredValues.password}
+          onChange={(event) => handleInputChange("password", event)}
+        />
       </div>
 
       <p className="form-actions">
