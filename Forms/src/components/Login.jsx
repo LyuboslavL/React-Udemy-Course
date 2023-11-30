@@ -33,6 +33,11 @@ export default function Login() {
     password: "",
   });
 
+  const [didEdit, setDidEdit] = useState({
+    email: false,
+    password: false,
+  });
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -45,16 +50,26 @@ export default function Login() {
       ...prevValues,
       [identifier]: event.target.value,
     }));
+
+    setDidEdit((prevEdit) => ({
+      ...prevEdit,
+      [identifier]: false,
+    }));
   };
 
-  const [didEdit, setDidEdit] = useState({
-    email: false,
-    password: false,
-  });
+  const handleInputBlur = (identifier) => {
+    setDidEdit((prevEdit) => ({
+      ...prevEdit,
+      [identifier]: true,
+    }));
+  };
 
   const emailIsInvalid =
-    !isEmail(enteredValues.email) && !isNotEmpty(enteredValues.email);
+    didEdit.email &&
+    !isEmail(enteredValues.email) &&
+    !isNotEmpty(enteredValues.email);
   const passwordIsInvalid =
+    didEdit.password &&
     !isNotEmpty(enteredValues.password) &&
     !hasMinLength(enteredValues.password);
 
@@ -79,6 +94,7 @@ export default function Login() {
           type="password"
           name="password"
           onChange={(event) => handleInputChange("password", event)}
+          onBlur={() => handleInputBlur("password")}
           value={enteredValues.password}
           error={passwordIsInvalid && "Password must be at least 6 characters."}
         />
