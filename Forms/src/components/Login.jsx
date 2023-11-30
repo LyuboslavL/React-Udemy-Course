@@ -71,7 +71,7 @@ export default function Login() {
   const passwordIsInvalid =
     didEdit.password &&
     !isNotEmpty(enteredValues.password) &&
-    !hasMinLength(enteredValues.password);
+    !hasMinLength(enteredValues.password, 6);
 
   return (
     <form onSubmit={handleSubmit}>
