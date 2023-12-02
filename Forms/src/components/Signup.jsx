@@ -10,7 +10,6 @@ export default function Signup() {
     const acquisitionChannel = formData.getAll("acquisition");
     const data = Object.fromEntries(formData.entries());
     data.acquisition = acquisitionChannel;
-    console.log(data);
 
     if (data.password !== data["confirm-password"]) {
       setNotSamePasswords(true);
