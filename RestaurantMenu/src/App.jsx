@@ -1,9 +1,22 @@
 function App() {
   return (
     <>
-      <h1>You got this 💪</h1>
-      <p>Stuck? Not sure how to proceed?</p>
-      <p>Don't worry - we've all been there. Let's build it together!</p>
+      <h1>Steps</h1>
+      <ol>
+        <li>Create components:</li>
+        <ul>
+          <li>- for displaying products</li>
+          <li>- the cart (in a modal)</li>
+          <li>- checkout form (in a modal)</li>
+        </ul>
+        <li>Fetch meals (GET request)</li>
+        <li>Allow users to add/remove items from cart</li>
+        <li>
+          Send cart and user data (full name, email, street, postal code, city)
+          to the backend (POST request)
+        </li>
+        <li>Handle loading and error states</li>
+      </ol>
     </>
   );
 }
