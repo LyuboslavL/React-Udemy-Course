@@ -1,13 +1,15 @@
-const MealItem = (props) => {
+import classes from "./MealItem.module.css";
+
+const MealItem = ({ props }) => {
   return (
     <li>
-      <div>
+      <div className={classes["meal-item"]}>
         <article>
-          <img></img>
-          <h3>Dummy meal</h3>
-          <div>Description</div>
-          <div>Price</div>
-          <div>Actions</div>
+          <img src={`http://localhost:3000/${props.image}`}></img>
+          <h3>{props.name}</h3>
+          <div className={classes.description}>{props.description}</div>
+          <div className={classes.price}>${props.price.toFixed(2)}</div>
+          <div className={classes.actions}>Actions</div>
         </article>
       </div>
     </li>
