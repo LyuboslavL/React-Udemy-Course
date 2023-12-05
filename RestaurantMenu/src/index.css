@@ -14,17 +14,6 @@ body {
   min-height: 100vh;
 }
 
-#meals {
-  width: 90%;
-  max-width: 70rem;
-  list-style: none;
-  margin: 2rem auto;
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 1rem;
-}
-
 .cart h2 {
   margin: 1rem 0;
 }
