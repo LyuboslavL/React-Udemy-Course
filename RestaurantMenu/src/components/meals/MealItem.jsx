@@ -11,10 +11,9 @@ const MealItem = ({ name, image, description, price, actions }) => {
           <h3>{name}</h3>
           <div className={classes["meal-item-price"]}>${price}</div>
           <div className={classes["meal-item-description"]}>{description}</div>
-          {/* <div className={classes["meal-item-actions"]}> */}
-          <Button className="-actions">Add to Cart</Button>
-          {/* <button className={classes.button}>Add to Cart</button> */}
-          {/* </div> */}
+          <div className={classes["meal-item-actions"]}>
+            <Button className="-actions">Add to Cart</Button>
+          </div>
         </div>
       </article>
     </li>
