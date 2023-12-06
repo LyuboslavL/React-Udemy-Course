@@ -8,7 +8,7 @@ const HeaderCartButton = (props) => {
 
   const btnClasses = `${classes.button} ${btnHighlight ? classes.bump : ""}`;
   return (
-    <button className={btnClasses}>
+    <button className={btnClasses} onClick={props.onClick}>
       <span className={classes.icon}>
         <CartIcon />
       </span>
