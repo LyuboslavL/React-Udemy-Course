@@ -1,11 +1,13 @@
 .cart h2 {
   margin: 1rem 0;
+  color: black;
 }
 
 .cart ul {
   list-style: none;
   margin: 0.5rem 0;
   padding: 0;
+  color: black;
 }
 
 .cart-total {

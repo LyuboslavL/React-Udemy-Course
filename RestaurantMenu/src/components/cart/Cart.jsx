@@ -1,7 +1,7 @@
+import classes from "./Cart.module.css";
+
 import Modal from "../ui/Modal.jsx";
 import Button from "../ui/Button.jsx";
-
-import classes from "./Cart.module.css";
 
 const Cart = (props) => {
   return (
