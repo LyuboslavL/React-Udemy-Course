@@ -9,7 +9,6 @@ function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
 
   const showCartHandler = () => {
-    console.log("clicked cart");
     setCartIsShown(true);
   };
 
