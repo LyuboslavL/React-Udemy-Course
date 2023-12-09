@@ -4,7 +4,11 @@ import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 
 const Backdrop = (props) => {
-  return <div className={classes.backdrop} onClick={props.onCancel} />;
+  return (
+    <div className={classes.overlay} onClick={props.onCancel}>
+      <div className={classes.inner}></div>
+    </div>
+  );
 };
 
 const ModalOverlay = (props) => {
@@ -15,7 +19,7 @@ const ModalOverlay = (props) => {
   );
 };
 
-const overlayRoot = document.getElementById("overlay-root");
+const overlayRoot = document.getElementById("inner");
 
 const Modal = (props) => {
   return (
