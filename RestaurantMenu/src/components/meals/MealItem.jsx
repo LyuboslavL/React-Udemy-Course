@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import classes from "./MealItem.module.css";
 
-import Button from "../ui/Button.jsx";
+import Button from "../UI/Button.jsx";
 import CartContext from "../../store/cart-context.jsx";
 import { currencyFormatter } from "../../util/formatter.js";
 
@@ -36,9 +36,7 @@ const MealItem = ({ meal }) => {
           <p className={classes["meal-item-description"]}>{meal.description}</p>
         </div>
         <p className={classes["meal-item-actions"]}>
-          <Button onClick={() => addToCartHandler()} className="-actions">
-            Add to Cart
-          </Button>
+          <Button onClick={() => addToCartHandler()}>Add to Cart</Button>
         </p>
       </article>
     </li>

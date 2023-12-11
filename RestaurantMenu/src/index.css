@@ -40,7 +40,7 @@ body {
   gap: 1rem;
 }
 
-/* .button {
+.button {
   font: inherit;
   cursor: pointer;
   background-color: #ffc404;
@@ -48,16 +48,15 @@ body {
   color: #1f1a09;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
-} */
-
-/* .button:hover,
+}
+*/ .button:hover,
 .button:active {
   background-color: #ffab04;
   border-color: #ffab04;
   color: #1f1a09;
-} */
+}
 
-/* .text-button {
+.text-button {
   font: inherit;
   cursor: pointer;
   background-color: transparent;
@@ -68,7 +67,7 @@ body {
 .text-button:hover,
 .text-button:active {
   color: #ffab04;
-} */
+}
 
 /* .modal {
   background-color: #e4ddd4;

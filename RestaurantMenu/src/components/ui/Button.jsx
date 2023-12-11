@@ -1,13 +1,9 @@
-import classes from "./Button.module.css";
+const Button = ({ children, textOnly, className, ...props }) => {
+  const cssClasses = textOnly ? `text-button ${className}` : `button`;
 
-const Button = (props) => {
   return (
-    <button
-      type={props.type || "button"}
-      className={`${classes.button} ${props.className}`}
-      onClick={props.onClick}
-    >
-      {props.children}
+    <button className={cssClasses} {...props}>
+      {children}
     </button>
   );
 };

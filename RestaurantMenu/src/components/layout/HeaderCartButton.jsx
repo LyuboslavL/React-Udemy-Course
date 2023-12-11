@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import CartIcon from "../cart/CartIcon.jsx";
+import CartIcon from "../Cart/CartIcon.jsx";
 import classes from "./HeaderCartButton.module.css";
 
 const HeaderCartButton = (props) => {

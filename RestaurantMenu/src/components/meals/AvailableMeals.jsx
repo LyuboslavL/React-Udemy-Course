@@ -1,6 +1,6 @@
 import MealItem from "./MealItem.jsx";
 import { fetchAvailableMeals } from "../../../http.js";
-import { useFetch } from "../hooks/useFetch.js";
+import { useFetch } from "../Hooks/useFetch.js";
 
 import classes from "./AvailableMeals.module.css";
 
