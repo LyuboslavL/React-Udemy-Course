@@ -4,8 +4,9 @@ import classes from "./MealItem.module.css";
 
 import Button from "../ui/Button.jsx";
 import CartContext from "../../store/cart-context.jsx";
+import { currencyFormatter } from "../../util/formatter.js";
 
-const MealItem = (props) => {
+const MealItem = ({ meal }) => {
   const cartCtx = useContext(CartContext);
   // console.log(props);
 
@@ -24,21 +25,21 @@ const MealItem = (props) => {
   };
 
   return (
-    <li>
+    <li className={classes["meal-item"]}>
       <article>
-        <div className={classes["meal-item"]} id={props.id}>
-          <img src={`http://localhost:3000/${props.image}`}></img>
-          <h3>{props.name}</h3>
-          <div className={classes["meal-item-price"]}>${props.price}</div>
-          <div className={classes["meal-item-description"]}>
-            {props.description}
-          </div>
-          <div className={classes["meal-item-actions"]}>
-            <Button onClick={addToCartHandler} className="-actions">
-              Add to Cart
-            </Button>
-          </div>
+        <img src={`http://localhost:3000/${meal.image}`} alt={meal.name}></img>
+        <div>
+          <h3>{meal.name}</h3>
+          <p className={classes["meal-item-price"]}>
+            {currencyFormatter.format(meal.price)}
+          </p>
+          <p className={classes["meal-item-description"]}>{meal.description}</p>
         </div>
+        <p className={classes["meal-item-actions"]}>
+          <Button onClick={() => addToCartHandler()} className="-actions">
+            Add to Cart
+          </Button>
+        </p>
       </article>
     </li>
   );

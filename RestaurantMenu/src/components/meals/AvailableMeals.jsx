@@ -12,25 +12,23 @@ async function fetchMeals() {
   });
 }
 
-const AvailableMeals = (props) => {
+const AvailableMeals = ({ onSelectMeal }) => {
   const {
     isLoading,
     error,
     fetchedData: availableMeals,
   } = useFetch(fetchMeals, []);
 
-  // if (error) {return (<Error title="Something went wrong." message={error.message}/>)}
+  // if (error) {
+  //   return <Error title="Something went wrong." message={error.message} />;
+  // }
 
   return (
     <ul id={classes.meals}>
       {availableMeals.map((meal) => (
         <MealItem
-          id={meal.id}
           key={meal.id}
-          image={meal.image}
-          name={meal.name}
-          description={meal.description}
-          price={meal.price}
+          meal={meal}
           onClick={() => addToCartHandler(meal)}
         />
       ))}
