@@ -5,29 +5,34 @@ import classes from "./MealItem.module.css";
 import Button from "../ui/Button.jsx";
 import CartContext from "../../store/cart-context.jsx";
 
-const MealItem = ({ id, name, image, description, price, actions }) => {
+const MealItem = (props) => {
   const cartCtx = useContext(CartContext);
+  // console.log(props);
 
-  const addToCartHandler = () => {
+  const addToCartHandler = (event) => {
+    const item = event.target.parentNode.parentNode;
+    console.log(item);
+
     cartCtx.addItem({
-      id: id,
-      key: id,
-      name: name,
-      // amount: amount + 1,
-      price: price,
+      id: item.id,
+      name: item.name,
+      // amount: amount,
+      price: item.price,
     });
 
-    console.log("clicked", cartCtx);
+    // console.log(cartCtx);
   };
 
   return (
-    <li id={id}>
+    <li>
       <article>
-        <div className={classes["meal-item"]}>
-          <img src={`http://localhost:3000/${image}`}></img>
-          <h3>{name}</h3>
-          <div className={classes["meal-item-price"]}>${price}</div>
-          <div className={classes["meal-item-description"]}>{description}</div>
+        <div className={classes["meal-item"]} id={props.id}>
+          <img src={`http://localhost:3000/${props.image}`}></img>
+          <h3>{props.name}</h3>
+          <div className={classes["meal-item-price"]}>${props.price}</div>
+          <div className={classes["meal-item-description"]}>
+            {props.description}
+          </div>
           <div className={classes["meal-item-actions"]}>
             <Button onClick={addToCartHandler} className="-actions">
               Add to Cart
