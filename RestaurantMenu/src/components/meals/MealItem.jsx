@@ -1,10 +1,27 @@
-import Button from "../ui/Button.jsx";
+import { useContext } from "react";
 
 import classes from "./MealItem.module.css";
 
-const MealItem = ({ name, image, description, price, actions }) => {
+import Button from "../ui/Button.jsx";
+import CartContext from "../../store/cart-context.jsx";
+
+const MealItem = ({ id, name, image, description, price, actions }) => {
+  const cartCtx = useContext(CartContext);
+
+  const addToCartHandler = () => {
+    cartCtx.addItem({
+      id: id,
+      key: id,
+      name: name,
+      // amount: amount + 1,
+      price: price,
+    });
+
+    console.log("clicked", cartCtx);
+  };
+
   return (
-    <li>
+    <li id={id}>
       <article>
         <div className={classes["meal-item"]}>
           <img src={`http://localhost:3000/${image}`}></img>
@@ -12,7 +29,9 @@ const MealItem = ({ name, image, description, price, actions }) => {
           <div className={classes["meal-item-price"]}>${price}</div>
           <div className={classes["meal-item-description"]}>{description}</div>
           <div className={classes["meal-item-actions"]}>
-            <Button className="-actions">Add to Cart</Button>
+            <Button onClick={addToCartHandler} className="-actions">
+              Add to Cart
+            </Button>
           </div>
         </div>
       </article>

@@ -25,12 +25,12 @@ const AvailableMeals = (props) => {
     <ul id={classes.meals}>
       {availableMeals.map((meal) => (
         <MealItem
-          id={meal.id}
           key={meal.id}
           image={meal.image}
           name={meal.name}
           description={meal.description}
           price={meal.price}
+          onClick={() => addToCartHandler(meal)}
         />
       ))}
     </ul>
