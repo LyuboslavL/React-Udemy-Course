@@ -4,39 +4,30 @@ import CartContext from "./cart-context.jsx";
 
 const defaultCartState = {
   items: [],
-  totalAmount: 0,
 };
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    const updatedTotalAmount =
-      state.totalAmount + action.item.price * action.item.amount;
-
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.item.id
     );
-    const existingCartItem = state.items[existingCartItemIndex];
 
-    let updatedItem;
-    let updatedItems;
+    let updatedItems = [...state.items];
 
-    if (existingCartItem) {
-      updatedItem = {
-        ...existingCartItem,
-        amount: existingCartItem.amount + action.item.amount,
+    if (existingCartItemIndex > -1) {
+      const existingItem = state.items[existingCartItemIndex];
+      const updatedItem = {
+        ...existingItem,
+        quantity: existingItem.quantity + 1,
       };
-      updatedItems = [...state.items];
       updatedItems[existingCartItemIndex] = updatedItem;
     } else {
-      updatedItem = {
-        ...action.item,
-      };
-      updatedItems = state.items.concat(updatedItem);
+      updatedItems.push({ ...action.item, quantity: 1 });
     }
 
     return {
+      ...state,
       items: updatedItems,
-      totalAmount: updatedTotalAmount,
     };
   } else if (action.type === "REMOVE") {
     const searchedItemIndex = state.items.findIndex(

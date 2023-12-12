@@ -9,7 +9,7 @@ import CartContext from "../../store/cart-context.jsx";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-  const totalAmount = cartCtx.totalAmount.toFixed(2);
+  // const totalAmount = cartCtx.totalAmount.toFixed(2);
 
   const cartItemRemoveHandler = (id) => {
     cartCtx.removeItem(id);
@@ -37,7 +37,7 @@ const Cart = (props) => {
             );
           })}
         </ul>
-        <span className={classes["cart-total"]}>{totalAmount}</span>
+        {/* <span className={classes["cart-total"]}>{totalAmount}</span> */}
       </div>
       <div>
         <Button className={classes["text-button"]} onClick={props.onCancel}>
