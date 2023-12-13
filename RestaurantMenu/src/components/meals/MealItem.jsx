@@ -8,20 +8,9 @@ import { currencyFormatter } from "../../util/formatter.js";
 
 const MealItem = ({ meal }) => {
   const cartCtx = useContext(CartContext);
-  // console.log(props);
 
-  const addToCartHandler = (event) => {
-    const item = event.target.parentNode.parentNode;
-    console.log(item);
-
-    cartCtx.addItem({
-      id: item.id,
-      name: item.name,
-      // amount: amount,
-      price: item.price,
-    });
-
-    // console.log(cartCtx);
+  const addToCartHandler = () => {
+    cartCtx.addItem(meal);
   };
 
   return (
@@ -36,7 +25,7 @@ const MealItem = ({ meal }) => {
           <p className={classes["meal-item-description"]}>{meal.description}</p>
         </div>
         <p className={classes["meal-item-actions"]}>
-          <Button onClick={() => addToCartHandler()}>Add to Cart</Button>
+          <Button onClick={addToCartHandler}>Add to Cart</Button>
         </p>
       </article>
     </li>
