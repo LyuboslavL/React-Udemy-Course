@@ -18,9 +18,9 @@
 .text-button {
   font: inherit;
   cursor: pointer;
-  background-color: transparent;
+  background-color: red;
   border: none;
-  color: #090909;
+  color: #020202;
 }
 
 .text-button:hover,

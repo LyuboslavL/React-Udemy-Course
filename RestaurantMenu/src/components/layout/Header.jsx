@@ -7,6 +7,10 @@ import CartContext from "../../store/cart-context.jsx";
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
+  const itemsQuantity = cartCtx.items.reduce(
+    (totalQuantity, item) => totalQuantity + item.quantity,
+    0
+  );
 
   return (
     <>
@@ -14,7 +18,10 @@ const Header = (props) => {
         <div id={classes["title"]}>
           <h1>Your Tasty Place</h1>
           <img src={mainImg} alt="A restaurant logo" />
-          <HeaderCartButton onClick={props.onShowCart} />
+          <HeaderCartButton
+            onClick={props.onShowCart}
+            quantity={itemsQuantity}
+          />
         </div>
       </header>
     </>

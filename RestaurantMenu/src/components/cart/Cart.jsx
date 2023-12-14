@@ -6,10 +6,15 @@ import Modal from "../UI/Modal.jsx";
 import Button from "../UI/Button.jsx";
 import CartItem from "./CartItem.jsx";
 import CartContext from "../../store/cart-context.jsx";
+import { currencyFormatter } from "../../util/formatter.js";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-  // const totalAmount = cartCtx.totalAmount.toFixed(2);
+
+  const cartTotal = cartCtx.items.reduce(
+    (totalPrice, item) => totalPrice + item.quantity * item.price,
+    0
+  );
 
   const cartItemRemoveHandler = (id) => {
     cartCtx.removeItem(id);
@@ -37,13 +42,15 @@ const Cart = (props) => {
             );
           })}
         </ul>
-        {/* <span className={classes["cart-total"]}>{totalAmount}</span> */}
-      </div>
-      <div>
-        <Button className={classes["text-button"]} onClick={props.onCancel}>
-          Close
-        </Button>
-        <Button onClick={props.onOrder}>Go to Checkout</Button>
+        <p className={classes["cart-total"]}>
+          {currencyFormatter.format(cartTotal)}
+        </p>
+        <p className={classes["text-button"]}>
+          <Button textOnly onClick={props.onCancel}>
+            Close
+          </Button>
+          <Button onClick={props.onOrder}>Go to Checkout</Button>
+        </p>
       </div>
     </Modal>
   );
