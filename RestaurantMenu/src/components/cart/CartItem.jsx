@@ -1,12 +1,12 @@
 import classes from "./CartItem.module.css";
+import { currencyFormatter } from "../../util/formatter";
 
 const CartItem = (props) => {
-  const price = `${props.price.toFixed(2)}`;
-
   return (
     <li className={classes["cart-item"]}>
       <p>
-        {props.name} - {props.amount} x {price}
+        {props.name} - {props.quantity} x{" "}
+        {currencyFormatter.format(props.price)}
       </p>
       <div className={classes.action}>
         <button onClick={props.onRemove}>-</button>

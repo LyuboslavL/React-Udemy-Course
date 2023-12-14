@@ -24,6 +24,8 @@ const Cart = (props) => {
     cartCtx.addItem({ ...item, amount: amount + 1 });
   };
 
+  console.log(cartCtx.items);
+
   return (
     <Modal onCancel={props.onCancel}>
       <div className={classes.cart}>
@@ -34,7 +36,7 @@ const Cart = (props) => {
               <CartItem
                 key={item.id}
                 name={item.name}
-                amount={item.amount}
+                quantity={item.quantity}
                 price={item.price}
                 onRemove={cartItemRemoveHandler.bind(null, item.id)}
                 onAdd={cartItemAddHandler.bind(null, item)}
