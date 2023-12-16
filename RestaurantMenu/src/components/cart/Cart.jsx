@@ -24,8 +24,6 @@ const Cart = (props) => {
     cartCtx.addItem({ ...item, amount: amount + 1 });
   };
 
-  console.log(cartCtx.items);
-
   return (
     <Modal onCancel={props.onCancel}>
       <div className={classes.cart}>
