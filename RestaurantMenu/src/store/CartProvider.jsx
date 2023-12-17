@@ -44,8 +44,9 @@ const cartReducer = (state, action) => {
         ...searchedItem,
         quantity: searchedItem.quantity - 1,
       };
+
       updatedItems = [...state.items];
-      updatedItems[searchedItem] = updatedItem;
+      updatedItems[searchedItemIndex] = updatedItem;
     }
 
     return {
