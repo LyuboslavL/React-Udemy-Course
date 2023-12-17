@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import classes from "./Cart.module.css";
 
@@ -9,7 +9,14 @@ import CartContext from "../../store/cart-context.jsx";
 import { currencyFormatter } from "../../util/formatter.js";
 
 const Cart = (props) => {
+  // const [cartIsEmpty, setCartIsEmpty] = useState(true);
   const cartCtx = useContext(CartContext);
+
+  // if (cartCtx.items.length === 0) {
+  //   setCartIsEmpty(true);
+  // } else {
+  //   setCartIsEmpty(false);
+  // }
 
   const cartTotal = cartCtx.items.reduce(
     (totalPrice, item) => totalPrice + item.quantity * item.price,
