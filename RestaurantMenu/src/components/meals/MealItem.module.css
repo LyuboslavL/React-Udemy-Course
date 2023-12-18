@@ -74,19 +74,6 @@
   color: #1f1a09;
 }
 
-/* .text-button {
-  font: inherit;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  color: #090909;
-}
-
-.text-button:hover,
-.text-button:active {
-  color: #020202;
-} */
-
 .meal-item-actions {
   margin-bottom: 1.5rem;
 }
