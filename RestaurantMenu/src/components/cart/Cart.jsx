@@ -60,9 +60,7 @@ const Cart = (props) => {
           <>
             <p>No items in your cart yet. Why don't you add some?</p>
             <p className={classes["text-button"]}>
-              <Button textOnly onClick={props.onCancel}>
-                Menu
-              </Button>
+              <Button onClick={props.onCancel}>Menu</Button>
             </p>
           </>
         )}
