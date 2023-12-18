@@ -19,13 +19,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
-  height: 288px;
+  height: 350px;
   background-color: rgb(207, 203, 194);
   padding: 20px;
   border: 1px solid black;
   border-radius: 14px;
   box-shadow: 10px 10px 5px #2c2b2b;
   animation: slide-down 300ms ease-out forwards;
+  overflow-y: auto;
 }
 
 /* .overlay {
