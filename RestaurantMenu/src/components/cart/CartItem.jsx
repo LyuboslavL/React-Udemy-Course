@@ -8,10 +8,11 @@ const CartItem = (props) => {
         {props.name} - {props.quantity} x{" "}
         {currencyFormatter.format(props.price)}
       </p>
-      <div className={classes.action}>
+      <p className={classes["cart-item-actions"]}>
         <button onClick={props.onRemove}>-</button>
+        <span>{props.quantity}</span>
         <button onClick={props.onAdd}>+</button>
-      </div>
+      </p>
     </li>
   );
 };
