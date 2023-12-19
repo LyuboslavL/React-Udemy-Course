@@ -28,7 +28,7 @@ function Checkout(props) {
           <Input label="City" type="text" id="city" />
         </div>
         <p className={classes["modal-actions"]}>
-          <Button type="button" textOnly>
+          <Button type="button" textOnly onClick={props.onCancel}>
             Close
           </Button>
           <Button>Submit order</Button>

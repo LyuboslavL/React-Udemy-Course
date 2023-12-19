@@ -43,3 +43,7 @@ body {
 .text-button:active {
   color: #ffab04;
 }
+
+h2 {
+  color: black;
+}

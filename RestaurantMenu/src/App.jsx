@@ -14,13 +14,22 @@ function App() {
     setCartIsShown(true);
   };
 
-  const hideCartHandler = () => {
+  const hideModalHandler = () => {
     setCartIsShown(false);
+    setCheckoutIsShown(false);
+  };
+
+  const checkoutHandler = () => {
+    setCartIsShown(false);
+    setCheckoutIsShown(true);
   };
 
   return (
     <CartProvider>
-      {cartIsShown && <Cart onCancel={hideCartHandler} />}
+      {cartIsShown && (
+        <Cart onCancel={hideModalHandler} onOrder={checkoutHandler} />
+      )}
+      {checkoutIsShown && <Checkout onCancel={hideModalHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
         <AvailableMeals />
