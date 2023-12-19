@@ -16,9 +16,20 @@ function Checkout(props) {
     0
   );
 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const fullName = formData.get("full-name");
+    const email = formData.get("email");
+    const street = formData.get("street");
+    const postalCode = formData.get("postal-code");
+    const city = formData.get("city");
+  }
+
   return (
     <Modal onCancel={props.onCancel}>
-      <form className={classes.checkout}>
+      <form className={classes.checkout} onSubmit={handleSubmit}>
         <h2>Checkout</h2>
         <p>Total Amount: {currencyFormatter.format(cartTotal)}</p>
         <Input label="Full name" type="text" id="full-name" />
