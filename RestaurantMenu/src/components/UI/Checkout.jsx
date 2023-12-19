@@ -1,10 +1,11 @@
 import { useContext } from "react";
 
+import classes from "./Checkout.module.css";
+
 import CartContext from "../../store/cart-context.jsx";
 import Modal from "./Modal.jsx";
 import Input from "./Input.jsx";
 import { currencyFormatter } from "../../util/formatter.js";
-import classes from "./Input.module.css";
 import Button from "./Button.jsx";
 
 function Checkout(props) {
@@ -17,7 +18,7 @@ function Checkout(props) {
 
   return (
     <Modal onCancel={props.onCancel}>
-      <form>
+      <form className={classes.checkout}>
         <h2>Checkout</h2>
         <p>Total Amount: {currencyFormatter.format(cartTotal)}</p>
         <Input label="Full name" type="text" id="full-name" />
