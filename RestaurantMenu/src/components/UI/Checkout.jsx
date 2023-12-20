@@ -21,23 +21,27 @@ function Checkout(props) {
 
     const formData = new FormData(event.target);
 
-    // const customerData = Object.fromEntries(formData.entries());
-    const fullName = formData.get("full-name");
-    const email = formData.get("email");
-    const street = formData.get("street");
-    const postalCode = formData.get("postal-code");
-    const city = formData.get("city");
+    const customerData = Object.fromEntries(formData.entries());
+    // const fullName = formData.get("name");
+    // const email = formData.get("email");
+    // const street = formData.get("street");
+    // const postalCode = formData.get("postal-code");
+    // const city = formData.get("city");
+
+    fetch("http://localhost:3000/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        order: {
+          items: cartCtx.items,
+          customer: customerData,
+        },
+      }),
+    });
 
     event.target.reset();
-
-    // return (
-    //   <Modal>
-    //     <div>
-    //       <h2>Thank you for your order!</h2>
-    //       <p>Your delicious food is on it's way</p>
-    //     </div>
-    //   </Modal>
-    // );
   }
 
   return (
@@ -45,7 +49,7 @@ function Checkout(props) {
       <form className={classes.checkout} onSubmit={handleSubmit}>
         <h2>Checkout</h2>
         <p>Total Amount: {currencyFormatter.format(cartTotal)}</p>
-        <Input label="Full name" type="text" id="full-name" />
+        <Input label="Full name" type="text" id="name" />
         <Input label="Email" type="text" id="email" />
         <Input label="Street" type="text" id="street" />
         <div className={classes["control-row"]}>
