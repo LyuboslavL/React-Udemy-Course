@@ -1,4 +1,5 @@
 import MealItem from "./MealItem.jsx";
+import Error from "../Layout/Error.jsx";
 import { fetchAvailableMeals } from "../../../http.js";
 import { useFetch } from "../Hooks/useFetch.js";
 
@@ -19,14 +20,15 @@ const AvailableMeals = ({ onSelectMeal }) => {
     fetchedData: availableMeals,
   } = useFetch(fetchMeals, []);
 
-  // if (error) {
-  //   return <Error title="Something went wrong." message={error.message} />;
-  // }
+  if (error) {
+    return <Error title="Something went wrong." message={error.message} />;
+  }
 
   return (
     <ul id={classes.meals}>
       {availableMeals.map((meal) => (
         <MealItem
+          isLoading={isLoading}
           key={meal.id}
           meal={meal}
           onClick={() => addToCartHandler(meal)}

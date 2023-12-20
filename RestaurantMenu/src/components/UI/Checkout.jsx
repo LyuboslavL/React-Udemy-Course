@@ -20,11 +20,24 @@ function Checkout(props) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
+
+    // const customerData = Object.fromEntries(formData.entries());
     const fullName = formData.get("full-name");
     const email = formData.get("email");
     const street = formData.get("street");
     const postalCode = formData.get("postal-code");
     const city = formData.get("city");
+
+    event.target.reset();
+
+    // return (
+    //   <Modal>
+    //     <div>
+    //       <h2>Thank you for your order!</h2>
+    //       <p>Your delicious food is on it's way</p>
+    //     </div>
+    //   </Modal>
+    // );
   }
 
   return (
