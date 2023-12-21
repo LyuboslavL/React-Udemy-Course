@@ -49,6 +49,7 @@ function Checkout(props) {
 
     setOrderIsSuccessful(true);
     event.target.reset();
+    cartCtx.removeAll();
   }
 
   return (
