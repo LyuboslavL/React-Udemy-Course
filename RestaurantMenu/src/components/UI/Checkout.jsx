@@ -3,13 +3,11 @@ import { useContext, useState } from "react";
 import classes from "./Checkout.module.css";
 
 import CartContext from "../../store/cart-context.jsx";
-// import CartProvider from "../../store/CartProvider.jsx";
 import Modal from "./Modal.jsx";
 import Input from "./Input.jsx";
 import Button from "./Button.jsx";
 import SuccessfulOrder from "./SuccessfulOrder.jsx";
 import { currencyFormatter } from "../../util/formatter.js";
-import CartProvider from "../../store/CartProvider.jsx";
 
 function Checkout(props) {
   const [orderIsSuccessful, setOrderIsSuccessful] = useState(false);

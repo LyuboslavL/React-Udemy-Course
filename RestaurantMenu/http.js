@@ -8,3 +8,18 @@ export async function fetchAvailableMeals() {
 
   return data;
 }
+
+export async function updateUserOrder(order) {
+  const response = await fetch("http://localhost:3000/orders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      order: {
+        items: cartCtx.items,
+        customer: customerData,
+      },
+    }),
+  });
+}
