@@ -4,11 +4,7 @@ import ReactDOM, { createPortal } from "react-dom";
 import classes from "./Modal.module.css";
 
 const Backdrop = (props) => {
-  return (
-    <div className={classes.overlay} onClick={props.onCancel}>
-      <div className={classes.inner}></div>
-    </div>
-  );
+  return <div className={classes.overlay} onClick={props.onCancel}></div>;
 };
 
 const ModalOverlay = (props) => {
