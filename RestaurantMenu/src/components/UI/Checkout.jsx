@@ -51,7 +51,6 @@ function Checkout(props) {
 
     setOrderIsSuccessful(true);
     event.target.reset();
-    console.log(cartCtx.items);
   }
 
   return (
