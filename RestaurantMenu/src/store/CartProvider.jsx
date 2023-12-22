@@ -54,12 +54,9 @@ const cartReducer = (state, action) => {
       items: updatedItems,
     };
   } else if (action.type === "REMOVE_ALL") {
-    let updatedItems = state.items;
-    updatedItems = [];
-
     return {
       ...state,
-      items: updatedItems,
+      items: [],
     };
   }
 
