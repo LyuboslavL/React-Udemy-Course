@@ -4,7 +4,6 @@ import { useSelector, useDispatch, connect } from "react-redux";
 
 import classes from "./Counter.module.css";
 
-/*
 const Counter = () => {
   const dispatch = useDispatch();
 
@@ -32,13 +31,15 @@ const Counter = () => {
     </main>
   );
 };
-*/
 
-class Counter extends Component {
-  incrementHandler() {
-    this.props.increment();
-  }
+export default Counter;
 
+/* CLASS-BASED COMPONENT 
+ class Counter extends Component {
+   incrementHandler() {
+     this.props.increment();
+    }
+    
   decrementHandler() {
     this.props.decrement();
   }
@@ -74,5 +75,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
-
-// export default Counter;
+*/
