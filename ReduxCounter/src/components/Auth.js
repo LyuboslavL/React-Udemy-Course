@@ -9,9 +9,9 @@ const Auth = () => {
   const loginHandler = (event) => {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const email = formData.email;
-    const password = formData.password;
+    // const formData = new FormData(event.target);
+    // const email = formData.email;
+    // const password = formData.password;
 
     dispatch(authActions.login());
   };
