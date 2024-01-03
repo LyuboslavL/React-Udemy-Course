@@ -5,20 +5,21 @@ import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
 
 const Cart = (props) => {
-  const books = useSelector((state) => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.items);
 
   return (
     <Card className={classes.cart}>
       <h2>Your Shopping Cart</h2>
       <ul>
-        {books.map((book) => (
+        {cartItems.map((book) => (
           <CartItem
             key={book.id}
-            id={book.id}
-            title={book.name}
-            quantity={book.quantity}
-            total={book.totalPrice}
-            price={book.price}
+            item={{
+              title: book.name,
+              quantity: book.quantity,
+              total: book.totalPrice,
+              price: book.price,
+            }}
           />
         ))}
       </ul>
