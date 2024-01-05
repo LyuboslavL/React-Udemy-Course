@@ -17,6 +17,7 @@ function App() {
   const cart = useSelector((state) => state.cart);
   const notification = useSelector((state) => state.ui.notification);
 
+  // with the async code inside the slice, but not as a part of the reducer but rather an action creator thunk
   useEffect(() => {
     if (isInitial) {
       isInitial = false;
@@ -26,7 +27,7 @@ function App() {
     dispatch(sendCartData(cart));
   }, [cart, dispatch]);
 
-  /* alternative way with useEffect rather than using a thunk function
+  /* alternative way with useEffect and data sending throught the component
   useEffect(() => {
     
     async function sendCartData() {
