@@ -5,7 +5,8 @@ import Cart from "./components/Cart/Cart";
 import Layout from "./components/Layout/Layout";
 import Products from "./components/Shop/Products";
 import Notification from "./components/UI/Notification";
-import { uiActions } from "./store/ui-slice";
+// import { uiActions } from "./store/ui-slice";
+import { sendCartData } from "./store/cart-slice";
 
 let isInitial = true;
 
@@ -17,6 +18,17 @@ function App() {
   const notification = useSelector((state) => state.ui.notification);
 
   useEffect(() => {
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+
+    dispatch(sendCartData(cart));
+  }, [cart, dispatch]);
+
+  /* alternative way with useEffect rather than using a thunk function
+  useEffect(() => {
+    
     async function sendCartData() {
       dispatch(
         uiActions.showNotification({
@@ -37,6 +49,8 @@ function App() {
       // response data is not needed
       // const responseData = await response.json();
 
+    
+
       dispatch(
         uiActions.showNotification({
           status: "success",
@@ -46,10 +60,13 @@ function App() {
       );
     }
 
+
+
     if (isInitial) {
       isInitial = false;
       return;
     }
+
 
     sendCartData().catch((error) => {
       dispatch(
@@ -60,7 +77,9 @@ function App() {
         })
       );
     });
+
   }, [cart, dispatch]);
+*/
 
   return (
     <Fragment>
