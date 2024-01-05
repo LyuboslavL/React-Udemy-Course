@@ -3,14 +3,6 @@ import { cartActions } from "./cart-slice";
 
 export const fetchCartData = (cart) => {
   return async (dispatch) => {
-    dispatch(
-      uiActions.showNotification({
-        status: "pending",
-        title: "Loading...",
-        message: "Loading cart data",
-      })
-    );
-
     const fetchRequest = async () => {
       const response = await fetch(
         "https://fir-react-database-5427c-default-rtdb.firebaseio.com/cart.json"

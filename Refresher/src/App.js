@@ -5,7 +5,6 @@ import Cart from "./components/Cart/Cart";
 import Layout from "./components/Layout/Layout";
 import Products from "./components/Shop/Products";
 import Notification from "./components/UI/Notification";
-// import { uiActions } from "./store/ui-slice";
 import { sendCartData, fetchCartData } from "./store/cart-actions";
 
 let isInitial = true;
@@ -28,7 +27,9 @@ function App() {
       return;
     }
 
-    dispatch(sendCartData(cart));
+    if (cart.changed) {
+      dispatch(sendCartData(cart));
+    }
   }, [cart, dispatch]);
 
   /* alternative way with useEffect and data sending throught the component
