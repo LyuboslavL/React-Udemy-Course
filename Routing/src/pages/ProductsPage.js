@@ -1,5 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 
+const PRODUCTS = [
+  { id: "p1", title: "Book" },
+  { id: "p2", title: "Phone" },
+  { id: "p3", title: "Hat" },
+];
+
 const Products = () => {
   const navigate = useNavigate();
 
@@ -12,15 +18,11 @@ const Products = () => {
       <h2>Products</h2>
       <div>This is the page where all the products are showed.</div>
       <ul>
-        <li>
-          <Link to="/products/book">Book</Link>
-        </li>
-        <li>
-          <Link to="/products/tickets">Tickets</Link>
-        </li>
-        <li>
-          <Link to="/products/food-voucher">Food voucher</Link>
-        </li>
+        {PRODUCTS.map((product) => (
+          <li key={product.id}>
+            <Link to={`/products/${product.id}`}>{product.title}</Link>
+          </li>
+        ))}
       </ul>
       <button onClick={navigateHandler}>Homepage</button>
       {/* <Link to="/">Homepage</Link> */}
