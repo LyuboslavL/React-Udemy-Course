@@ -6,7 +6,7 @@ const DUMMY_EVENTS = [
   { id: "e3", title: "Cooking Class" },
 ];
 
-const Events = () => {
+const EventsPage = () => {
   return (
     <>
       <h1>Events Page</h1>
@@ -22,4 +22,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default EventsPage;
