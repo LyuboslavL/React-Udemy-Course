@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import EventsList from "../components/EventsList";
 
-const EventsPage = () => {
+function EventsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchedEvents, setFetchedEvents] = useState();
   const [error, setError] = useState();
@@ -23,7 +23,6 @@ const EventsPage = () => {
 
     fetchEvents();
   }, []);
-
   return (
     <>
       <div style={{ textAlign: "center" }}>
@@ -33,6 +32,6 @@ const EventsPage = () => {
       {!isLoading && fetchedEvents && <EventsList events={fetchedEvents} />}
     </>
   );
-};
+}
 
-export default EventsPage;
+// export default EventsPage;
