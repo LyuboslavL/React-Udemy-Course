@@ -28,7 +28,7 @@ const router = createBrowserRouter([
               if (!response.ok) {
                 // ...
               } else {
-                const resData = response.json();
+                const resData = await response.json();
                 return resData.events;
               }
             },
