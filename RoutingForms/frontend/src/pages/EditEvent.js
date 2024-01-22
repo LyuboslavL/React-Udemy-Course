@@ -38,5 +38,5 @@ export async function action({ request, params }) {
     throw json({ message: "Could not edit event." }, { status: 500 });
   }
 
-  return redirect("/events/");
+  return redirect("/events/" + id);
 }
