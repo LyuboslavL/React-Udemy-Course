@@ -26,16 +26,16 @@ export async function loader({ request, params }) {
   }
 }
 
-export async function action({ request, params }) {
-  const id = params.id;
+// export async function action({ request, params }) {
+//   const id = params.id;
 
-  const response = await fetch("http://localhost:8080/events/" + id, {
-    method: request.method,
-  });
+//   const response = await fetch("http://localhost:8080/events/" + id, {
+//     method: request.method,
+//   });
 
-  if (!response.ok) {
-    throw json({ message: "Can't delete it right now." }, { status: 500 });
-  }
+//   if (!response.ok) {
+//     throw json({ message: "Can't delete it right now." }, { status: 500 });
+//   }
 
-  return redirect("/events");
-}
+//   return redirect("/events");
+// }

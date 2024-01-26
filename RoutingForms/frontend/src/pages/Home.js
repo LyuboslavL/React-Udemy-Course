@@ -2,7 +2,7 @@ function HomePage() {
   return (
     <>
       <h1>Homepage</h1>
-      <p>This is the homepage.</p>
+      <p>Plan your next event and adventure!</p>
     </>
   );
 }
